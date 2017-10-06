@@ -1,0 +1,38 @@
+{
+	"name": "trainbotrn",
+	"version": "0.0.1",
+	"engines": {
+		"node": "8.0.0",
+		"npm": "5.4.2"
+	},
+	"private": true,
+	"author": "Ryan House, Matt Whitcomb, Andrey Orlov",
+	"bugs": {
+		"url": "https://github.com/rhouse00/TrainBotRN/issues"
+	},
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rhouse00/TrainBotRN"
+	},
+	"homepage": "https://github.com/rhouse00/TrainBotRN#readme",
+	"dependencies": {
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.48.4",
+		"react-native-router-flux": "^4.0.0-beta.21",
+		"react-redux": "^5.0.6",
+		"redux": "^3.7.2"
+	},
+	"devDependencies": {
+		"babel-jest": "21.2.0",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.2.1",
+		"react-test-renderer": "16.0.0-alpha.12"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
