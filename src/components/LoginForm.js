@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Button, Input } from './common';
-import { emailChanged, passwordChanged, loginUser } from '../actions';
+import { emailChanged, passwordChanged, loginUserPending } from '../actions';
 
 class LoginForm extends Component {
 
@@ -15,7 +15,7 @@ class LoginForm extends Component {
     }
     onButtonPress() {
         const { email, password } = this.props;
-        this.props.loginUser({ email, password });
+        this.props.loginUserPending({ email, password });
     }
 
     
@@ -53,9 +53,7 @@ class LoginForm extends Component {
 
 const styles = {
     overrideCardStyle: {
-        marginTop: 240, 
-        borderColor: '#ddd', 
-        borderTopWidth: 1, 
+        marginTop: 120,
         height: 'auto'
     }
 };
@@ -68,4 +66,4 @@ const mapStateToProps = ({ auth }) => {
     }
 }
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LoginForm);
+export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUserPending })(LoginForm);
