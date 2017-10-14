@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const CardSection = (props) => {
+const CardSection = (props, style) => {
     const { sectionStyle } = styles;
     return (
-        <View style={sectionStyle}>
+        <View style={[sectionStyle, style]}>
             {props.children}
         </View>
     );
@@ -19,7 +19,6 @@ const styles = {
         borderColor: '#ddd',
         borderBottomWidth: 1,
         padding: 8
-
     }
 };
 
