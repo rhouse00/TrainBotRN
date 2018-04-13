@@ -1,11 +1,12 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
+import { clientFetch } from './index';
 import {
     PASSWORD_CHANGED,
     EMAIL_CHANGED,
-    LOGIN_USER_PENDING,
-    LOGIN_USER_SUCCESS,
-    LOGIN_USER_FAIL,
+    LOGIN_CLIENT_PENDING,
+    LOGIN_CLIENT_SUCCESS,
+    LOGIN_CLIENT_FAIL,
     AUTH_ERROR
 } from './types';
 
@@ -25,36 +26,40 @@ export const passwordChanged = (text) => {
 
 export const loginUser = (text) => {
     return {
-        type: LOGIN_USER_PENDING,
+        type: LOGIN_CLIENT_PENDING,
         payload: text
     };
 };
 
-const loginUserSuccess = (dispatch, user) => {
+const loginClientSuccess = (dispatch, user) => {
     dispatch({
-        type: LOGIN_USER_SUCCESS,
+        type: LOGIN_CLIENT_SUCCESS,
         payload: user
     });
+    console.log(user.uid);
+    clientFetch(user.uid);
     Actions.clientArea();
 };
 
-const loginUserFail = (dispatch, error) => {
+const loginClientFail = (dispatch, error) => {
     dispatch({ 
-        type: LOGIN_USER_FAIL,
+        type: LOGIN_CLIENT_FAIL,
         payload: error
     });
 };
 
-export const loginUserPending = ({ email, password }) => {
+export const loginClientPending = ({ email, password }) => {
     return (dispatch) => {
-        dispatch({ type: LOGIN_USER_PENDING });
+        dispatch({ type: LOGIN_CLIENT_PENDING });
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(user => loginUserSuccess(dispatch, user))
+            .then(user => {
+                loginClientSuccess(dispatch, user);
+            })
             .catch((error) => {
                 console.log(error);
                 firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then(user => loginUserSuccess(dispatch, user))
-                    .catch(() => loginUserFail(dispatch, AUTH_ERROR ));
+                    .then(user => loginClientSuccess(dispatch, user))
+                    .catch(() => loginClientFail(dispatch, AUTH_ERROR));
             });
     };
 };
