@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
-import { DUMBBELL, ACCOUNT_FILLED, CHAT_UNFILLED_DOUBLE, CHAT_FILLED_SQUARE } from '../images';
+import { View, Image } from 'react-native';
+import { DUMBBELL, ACCOUNT_FILLED, CHAT_FILLED_SQUARE } from '../images';
 
 class TabIcon extends Component {
 
@@ -18,7 +18,7 @@ class TabIcon extends Component {
     }
 
     render() {
-        const { viewStyle, iconStyle } = styles;
+        const { iconStyle } = styles;
         return (
                 <View>
                     {this.iconPNG(this.props.title, iconStyle)}
@@ -28,11 +28,6 @@ class TabIcon extends Component {
 }
 
 const styles = {
-    viewStyle: {
-        backgroundColor: '#11ff11',
-        height: 96,
-        flex:1
-    },
     iconStyle: {
         height: 48, 
         width: 48
