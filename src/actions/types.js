@@ -1,8 +1,12 @@
 export const EMAIL_CHANGED = 'email_changed';
 export const PASSWORD_CHANGED = 'password_changed';
-export const LOGIN_USER_PENDING = 'login_user_pending';
-export const LOGIN_USER_SUCCESS = 'login_user_success';
-export const LOGIN_USER_FAIL = 'login_user_fail';
+export const LOGIN_CLIENT_PENDING = 'login_client_pending';
+export const LOGIN_CLIENT_SUCCESS = 'login_client_success';
+export const LOGIN_CLIENT_FAIL = 'login_client_fail';
 export const AUTH_ERROR = 'Authentication fail. Please retry password and/or email';
 export const WORKOUTS_FETCH_SUCCESS = 'workouts_fetch_success';
 export const WORKOUTS_FETCH_FAIL = 'workouts_fetch_fail';
+export const CLIENT_UPDATE = 'client_update';
+export const CLIENT_SAVE_SUCCESS = 'client_save_success';
+export const CLIENT_FETCH_SUCCESS = 'client_fetch_success';
+export const CLIENT_FETCH_FAIL = 'client_fetch_fail';
