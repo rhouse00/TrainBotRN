@@ -7,18 +7,25 @@ class ListItem extends Component {
     
     renderText(style) {
         const { day, ...items } = this.props.workout;
-        return Object.keys(items).map( (item, index) => {
+        return Object.keys(items).map((item, index) => {
             return (
                 <Text style={style} key={index}>
                     {items[item]}
                 </Text>
-            )
+            );
         });
     }
 
     render() {
         const { day } = this.props.workout;
-        const { cardOverrideStyle, dayContainerStyle, dayHeaderStyle, workoutContainerStyle, workoutTextStyle } = styles;
+        const { 
+            cardOverrideStyle, 
+            dayContainerStyle, 
+            dayHeaderStyle, 
+            workoutContainerStyle, 
+            workoutTextStyle 
+        } = styles;
+
         return (
             <Card style={cardOverrideStyle} >
 
@@ -60,6 +67,6 @@ const styles = {
     workoutTextStyle: {
         fontSize: 18
     }
-}
+};
 
 export default ListItem;
