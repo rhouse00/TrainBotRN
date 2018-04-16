@@ -1,8 +1,8 @@
 import React from 'react';
-import { Scene, Stack, Router, Actions } from 'react-native-router-flux';
+import { Scene, Stack, Router } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import WorkoutList from './components/WorkoutList';
-import Profile from './components/Profile';
+import ClientProfile from './components/ClientProfile';
 import TabIcon from './components/TabIcon';
 import Chat from './components/Chat';
 
@@ -27,8 +27,8 @@ const RouterComponent = () => {
                     
                     <Scene
                         icon={TabIcon}
-                        key='profile'
-                        component={Profile}
+                        key='clientprofile'
+                        component={ClientProfile}
                         title='Profile'
                     />
                     <Scene
@@ -52,17 +52,17 @@ const RouterComponent = () => {
 
 const styles = {
     navBarStyle: {
-        backgroundColor: "#c1ffff",
+        backgroundColor: '#c1ffff',
         height: 60
     },
-    navBarTitle:{
-        color:'#aaa'
+    navBarTitle: {
+        color: '#aaa'
     },
     tabBarStyle: {
         backgroundColor: '#c1ffff',
         height: 60
     }
-}
+};
 
 export default RouterComponent;
 
