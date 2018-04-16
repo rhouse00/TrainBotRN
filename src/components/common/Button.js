@@ -30,6 +30,6 @@ const styles = {
         fontWeight: 'bold',
         alignSelf: 'center'
     }
-}
+};
 
 export { Button };
