@@ -20,8 +20,8 @@ const styles = {
         borderColor: '#ccc',
         shadowColor: '#aaa',
         shadowOpacity: 0.7,
-        shadowOffset: { width: 0, height: 2}
+        shadowOffset: { width: 0, height: 2 }
     }
-}
+};
 
 export { Card };
