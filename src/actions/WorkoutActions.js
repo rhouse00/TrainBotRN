@@ -1,8 +1,7 @@
 import firebase from 'firebase';
-import { WORKOUTS_FETCH_SUCCESS, WORKOUTS_FETCH_FAIL } from './types';
+import { WORKOUTS_FETCH_SUCCESS } from './types';
 
 export const workoutsFetch = () => {
-
     return (dispatch) => {
         firebase.database()
             .ref('/programs/powerlifting')
