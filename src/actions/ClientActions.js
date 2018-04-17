@@ -13,15 +13,13 @@ export const clientUpdate = ({ prop, value }) => {
     };
 };
 
-export const clientFetch = (id = {}) => {
-    const clientKey = !id.length ? firebase.auth().currentUser.uid : id;  
-    console.log('inside client fetch');
+export const clientFetch = () => {
+    const clientKey = !id.length ? firebase.auth().currentUser.uid : id;
+    // const clientKey = firebase.auth().currentUser.uid;
     return (dispatch) => {
-        console.log('inside return statement for client fetch');
         firebase.database()
             .ref(`/clients/${clientKey}/`)
             .on('value', snapshot => {
-                console.log(snapshot.val());
                 dispatch({ type: CLIENT_FETCH_SUCCESS, payload: snapshot.val() });
             });
     };
