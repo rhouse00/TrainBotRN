@@ -7,8 +7,8 @@ import { CardSection, Input } from './common';
 class ClientForm extends Component {
 
     render() {
-        const { editable } = this.props;
-        // const { name, phone, email } = this.props;
+        // const { editable } = this.props;
+        const { name, phone, email, editable } = this.props;
         console.log(this.props);
         return (
             <View>
@@ -16,7 +16,7 @@ class ClientForm extends Component {
                     <Input
                         label='Name'
                         placeholder='Jenny'
-                        value={this.props.name}
+                        value={name}
                         onChangeText={value => this.props.clientUpdate({ prop: 'name', value })}
                         editable={editable}
                     />
@@ -26,7 +26,7 @@ class ClientForm extends Component {
                     <Input
                         label='Email'
                         placeholder='jennyjenny@g.com'
-                        value={this.props.email}
+                        value={email}
                         onChangeText={value => this.props.clientUpdate({ prop: 'email', value })}
                         editable={editable}
                     />
@@ -36,7 +36,7 @@ class ClientForm extends Component {
                     <Input
                         label='Phone'
                         placeholder='555-867-5309'
-                        value={this.props.phone}
+                        value={phone}
                         onChangeText={value => this.props.clientUpdate({ prop: 'phone', value })}
                         editable={editable}
                     />
