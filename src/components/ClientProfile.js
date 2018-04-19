@@ -9,32 +9,33 @@ class ClientProfile extends Component {
 
     componentWillMount() {
         this.props.clientFetch();
-        console.log();
+        const client = this.props.client;
+        Object.keys(client).forEach((prop) => {
+            const value = client[prop];
+            this.props.clientUpdate({ prop, value });
+        });
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('Will Receive Props', this.props);
-        // this.setState({ nextProps });
-    }
-    componentDidUpdate() {
-        console.log('Did Update\n', this.props);
-        const client = this.props.client;
-        // client.forEach((value, key) => {
-        //     this.props.clientUpdate(key, value);
-        // });
-
+        const client = nextProps.client;
         Object.keys(client).forEach((prop) => {
-            console.log(prop, client[prop]);
-            console.log(this.props);
+            const value = client[prop];
+            this.props.clientUpdate({ prop, value });
+        });
+    }
+
+    componentDidUpdate() {
+        const client = this.props.client;
+        Object.keys(client).forEach((prop) => {
             const value = client[prop];
             this.props.clientUpdate({ prop, value });
         });
     }
 
     onSubmitButtonPress() {
-        console.log('submit button press:\n', this.props);
         const { name, email, phone, program } = this.props;
         this.props.clientSave({ name, email, phone, program });
+        this.toggleEdit();
     }
     
     toggleEdit() {
@@ -81,11 +82,7 @@ class ClientProfile extends Component {
 const mapStateToProps = (state) => {
     const { email, name, phone } = state.client;
     const { client } = state;
-    console.log(state);
     return { email, name, phone, client };
-    // const { name, email, phone, program } = state.clientFormData;
-    // console.log(state);
-    // return { name, email, phone, program };
 };
 
 export default connect(mapStateToProps, { clientUpdate, clientSave, clientFetch })(ClientProfile);
