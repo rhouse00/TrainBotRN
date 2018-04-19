@@ -14,8 +14,8 @@ export const clientUpdate = ({ prop, value }) => {
 };
 
 export const clientFetch = () => {
-    const clientKey = !id.length ? firebase.auth().currentUser.uid : id;
-    // const clientKey = firebase.auth().currentUser.uid;
+    // const clientKey = !id.length ? firebase.auth().currentUser.uid : id;
+    const clientKey = firebase.auth().currentUser.uid;
     return (dispatch) => {
         firebase.database()
             .ref(`/clients/${clientKey}/`)
