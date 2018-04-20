@@ -10,32 +10,33 @@ class ClientProfile extends Component {
     componentWillMount() {
         this.props.clientFetch();
         const client = this.props.client;
-        Object.keys(client).forEach((prop) => {
-            const value = client[prop];
-            this.props.clientUpdate({ prop, value });
-        });
+        this.updateFormFields(client);
     }
 
     componentWillReceiveProps(nextProps) {
         const client = nextProps.client;
-        Object.keys(client).forEach((prop) => {
-            const value = client[prop];
-            this.props.clientUpdate({ prop, value });
-        });
+        console.log('inside WILL\n', client);
+        this.updateFormFields(client);
     }
 
     componentDidUpdate() {
         const client = this.props.client;
+        this.updateFormFields(client);
+    }
+
+    onSubmitButtonPress() {
+        const { name, email, phone } = this.props;
+        // console.log('inside submit button \n', name, email, phone);
+        console.log(this.props);
+        this.props.clientSave({ name, email, phone });
+        this.toggleEdit();
+    }
+
+    updateFormFields(client) {
         Object.keys(client).forEach((prop) => {
             const value = client[prop];
             this.props.clientUpdate({ prop, value });
         });
-    }
-
-    onSubmitButtonPress() {
-        const { name, email, phone, program } = this.props;
-        this.props.clientSave({ name, email, phone, program });
-        this.toggleEdit();
     }
     
     toggleEdit() {
