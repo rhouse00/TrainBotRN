@@ -26,10 +26,10 @@ export const clientFetch = () => {
 };
 
 export const clientSave = ({ name, phone, email }) => {
-    const { currentUser } = firebase.auth();
+    const clientKey = firebase.auth().currentUser.uid;
     return (dispatch) => {
         firebase.database()
-            .ref(`/clients/${currentUser.uid}`)
+            .ref(`/clients/${clientKey}`)
             .set({ name, phone, email })
             .then(() => {
                 dispatch({ type: CLIENT_SAVE_SUCCESS });
