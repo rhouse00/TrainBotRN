@@ -15,7 +15,7 @@ class ClientProfile extends Component {
 
     componentWillReceiveProps(nextProps) {
         const client = nextProps.client;
-        console.log('inside WILL\n', client);
+        console.log('inside WILL\n', nextProps);
         this.updateFormFields(client);
     }
 
@@ -32,19 +32,28 @@ class ClientProfile extends Component {
         this.toggleEdit();
     }
 
+    handleInputChange = (key, value) => {
+        this.props.clientUpdate({ prop: key, value });
+    }
+
     updateFormFields(client) {
         Object.keys(client).forEach((prop) => {
             const value = client[prop];
             this.props.clientUpdate({ prop, value });
         });
     }
-    
+
     toggleEdit() {
         this.setState({ editable: !this.state.editable });
     }
 
     renderClientProfile() {
-        return <ClientForm editable={this.state.editable} />;
+        return (
+            <ClientForm 
+                editable={this.state.editable} 
+                handleInputChange={this.handleInputChange}
+            />
+        );
      }
 
     renderButtons() {
