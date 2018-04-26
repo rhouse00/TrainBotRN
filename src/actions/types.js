@@ -10,3 +10,6 @@ export const CLIENT_UPDATE = 'client_update';
 export const CLIENT_SAVE_SUCCESS = 'client_save_success';
 export const CLIENT_FETCH_SUCCESS = 'client_fetch_success';
 export const CLIENT_FETCH_FAIL = 'client_fetch_fail';
+export const ADD_MESSAGE_UPDATE = 'add_message_update';
+export const ADD_MESSAGE_SUCCESS = 'add_message_success';
+export const ADD_MESSAGE_FAIL = 'add_message_fail';
