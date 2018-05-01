@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
       case ADD_MESSAGE_SUCCESS:
          return state;
       case ADD_MESSAGE_FAIL:
-         return state;
+         return { ...state, message: action.payload.value };
       default:
          return state;
    }
