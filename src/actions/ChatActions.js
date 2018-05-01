@@ -6,13 +6,17 @@ import {
 } from './types';
 
 export const addMessageUpdate = (message) => {
-   // return {
-   //    type: ADD_MESSAGE_UPDATE,
-   //    payload: message
-   // };
-   console.log(message);
+    console.log(message);
+    return {
+      type: ADD_MESSAGE_UPDATE,
+      payload: message
+   };
 };
 
 export const addMessageSend = ({ message }) => {
    console.log('Final Message:\n', message);
+   return {
+       type: ADD_MESSAGE_SUCCESS,
+       payload: message
+   };
 };
